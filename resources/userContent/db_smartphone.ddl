@@ -112,5 +112,5 @@ INSERT INTO t_os (osName) VALUES ("Android"), ("iOS"), ("Windows");
 
 DROP USER IF EXISTS `dbUser_smartphone`@`localhost`;
 CREATE USER `dbUser_smartphone`@`localhost` identified by '.Etml-';
-GRANT INSERT, SELECT, DELETE, UPDATE ON `db_recettes`.* TO `dbUser_smartphone`@`localhost`;
+GRANT INSERT, SELECT, DELETE, UPDATE ON `db_smartphone`.* TO `dbUser_smartphone`@`localhost`;
 FLUSH PRIVILEGES;

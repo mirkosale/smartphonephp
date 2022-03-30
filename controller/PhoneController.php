@@ -6,9 +6,9 @@
  * Controler pour gérer les recettes
  */
 
-include_once 'model/ReceipeRepository.php';
+include_once 'model/Database.php';
 
-class ReceipeController extends Controller {
+class PhoneController extends Controller {
 
     /**
      * Permet de choisir l'action à effectuer
@@ -31,8 +31,8 @@ class ReceipeController extends Controller {
     private function listAction() {
 
         // Instancie le modèle et va chercher les informations
-        $receipeRepository = new ReceipeRepository();
-        $receipes = $receipeRepository->findAll();
+        $db = new Database();
+       // $receipes = $db->findAll();
 
         // Charge le fichier pour la vue
         $view = file_get_contents('view/page/receipe/list.php');
@@ -56,8 +56,8 @@ class ReceipeController extends Controller {
      */
     private function detailAction() {
 
-        $receipeRepository = new ReceipeRepository();
-        $receipe = $receipeRepository->findOne($_GET['id']);
+        $db = new Database();
+       // $receipe = $db->findOne($_GET['id']);
 
         $view = file_get_contents('view/page/customer/detail.php');
 

@@ -16,10 +16,10 @@ Description: les données sont traitées et affichées directement dans la page 
      */
     public function __construct(){
         $pass = '.Etml-';
-        $user = 'dbUser_pt41kyp';
+        $user = 'dbUser_smartphone';
         try
         {
-        $this->connector = new PDO('mysql:host=localhost;dbname=db_nickname_pt41kyp;charset=utf8' , $user, $pass);
+        $this->connector = new PDO('mysql:host=localhost;dbname=db_smartphone;charset=utf8' , $user, $pass);
         }
         catch (PDOException $e)
         {
