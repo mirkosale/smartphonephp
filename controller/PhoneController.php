@@ -3,12 +3,12 @@
  * ETML
  * Auteur : Cindy Hardegger
  * Date: 22.01.2019
- * Controler pour gérer les clients
+ * Controler pour gérer les recettes
  */
 
-include_once 'model/CustomerRepository.php';
+include_once 'model/Database.php';
 
-class CustomerController extends Controller {
+class PhoneController extends Controller {
 
     /**
      * Permet de choisir l'action à effectuer
@@ -31,11 +31,11 @@ class CustomerController extends Controller {
     private function listAction() {
 
         // Instancie le modèle et va chercher les informations
-        $customerRepository = new CustomerRepository();
-        $customers = $customerRepository->findAll();
+        $db = new Database();
+        $phones = $db->getAllPhones();
 
         // Charge le fichier pour la vue
-        $view = file_get_contents('view/page/customer/list.php');
+        $view = file_get_contents('view/page/receipe/list.php');
 
 
         // Pour que la vue puisse afficher les bonnes données, il est obligatoire que les variables de la vue puisse contenir les valeurs des données
@@ -56,8 +56,8 @@ class CustomerController extends Controller {
      */
     private function detailAction() {
 
-        $customerRepository = new CustomerRepository();
-        $customer = $customerRepository->findOne($_GET['id']);
+        $db = new Database();
+        $phone = $db->getOnePhone($_GET['id']);
 
         $view = file_get_contents('view/page/customer/detail.php');
 

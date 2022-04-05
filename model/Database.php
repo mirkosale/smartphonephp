@@ -20,10 +20,18 @@
      * Se connecter via PDO et utilise la variable de classe $connector
      */
     public function __construct(){
+<<<<<<< HEAD
 
         try
         {
             $this -> connector = new PDO('mysql:host=localhost; dbname=db_nickname_diedasilva; charset=utf8' , 'dbUser_DiegoDaSilva', '.Etml-');
+=======
+        $pass = '.Etml-';
+        $user = 'dbUser_smartphone';
+        try
+        {
+        $this->connector = new PDO('mysql:host=localhost;dbname=db_smartphone;charset=utf8' , $user, $pass);
+>>>>>>> ccaa7c451485effebff086c093ad473dc6b2272c
         }
         catch (PDOException $e)
         {
