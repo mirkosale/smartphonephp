@@ -9,9 +9,7 @@
  * Description : 
  */
 
-
  class Database {
-
 
     // Variable de classe
     private $connector;
@@ -20,18 +18,9 @@
      * Se connecter via PDO et utilise la variable de classe $connector
      */
     public function __construct(){
-<<<<<<< HEAD
-
         try
         {
             $this -> connector = new PDO('mysql:host=localhost; dbname=db_nickname_diedasilva; charset=utf8' , 'dbUser_DiegoDaSilva', '.Etml-');
-=======
-        $pass = '.Etml-';
-        $user = 'dbUser_smartphone';
-        try
-        {
-        $this->connector = new PDO('mysql:host=localhost;dbname=db_smartphone;charset=utf8' , $user, $pass);
->>>>>>> ccaa7c451485effebff086c093ad473dc6b2272c
         }
         catch (PDOException $e)
         {
@@ -83,123 +72,67 @@
     /**
      * récupère la liste de tous les enseignants de la BD    
      */
-    public function getAllTeachers(){
+    public function getAllPhone(){
     
         // avoir la requête sql
-        $queryTeacher = 'SELECT idTeacher, `teaFirstname`, `teaName`, `teaGender`, `teaNickname` FROM `t_teacher`';
+        $queryPhone = 'SELECT idSmartphone, `smaFullname`, `smaBrand` FROM `t_smartphone`';
 
         // appeler la méthode pour executer la requête
-        $getQueryTeacher = $this -> querySimpleExecute($queryTeacher);
+        $getQueryPhone = $this -> querySimpleExecute($queryPhone);
 
         // appeler la méthode pour avoir le résultat sous forme de tableau
         // retour tous les enseignants
-        return $this -> formatData($getQueryTeacher);
+        return $this -> formatData($getQueryPhone);
         
     }
 
     /**
      * récupère la liste des informations pour 1 enseignant
      */
-    public function getOneTeacher($id){
+    public function getOnePhone($id){
 
         // avoir la requête sql pour 1 enseignant (utilisation de l'id)
-        $queryOneTeacher = "SELECT `teaFirstname`, `teaName`, `teaGender`, `teaNickname`, `teaOrigine`, `secName` FROM `t_teacher` INNER JOIN `t_section` ON t_section.idSection = t_teacher.fkSection WHERE idTeacher=:varId";
+        $queryOnePhone = "SELECT * FROM `t_smartphone`";
 
-        $bindTeacher = array(
+        $bindPhone = array(
             array("name" => "varId" , "value" => $id, "type"=> PDO::PARAM_INT)
         );
 
         // appeler la méthode pour executer la requête
-        $getQueryOneTeacher = $this -> queryPrepareExecute($queryOneTeacher, $bindTeacher);
+        $getQueryOnePhone = $this -> queryPrepareExecute($queryOnePhone, $bindPhone);
 
         // appeler la méthode pour avoir le résultat sous forme de tableau
         // retour l'enseignant
-        return $this -> formatData($getQueryOneTeacher);    
+        return $this -> formatData($getQueryOnePhone);    
     }
-    /**
-     * créer un enseignant avec toute ses coordenées
-     */
-    public function insertTeacher($firstname, $name, $gender, $nickname, $origin, $section){
-        
-        //avoir la requête pour insérer un professeur
-            $queryInsertTeacher = "INSERT INTO `t_teacher`(`idTeacher`, `teaFirstname`, `teaName`, `teaGender`, `teaNickname`, `teaOrigine`, `fkSection`) VALUES (NULL, :firstname, :name, :gender, :nickname, :origin, :section)";
 
-            $bindInsertTeacher = array(
-                0=>array("name" => "firstname", "value" => $firstname, "type" => PDO::PARAM_STR),
-                1=>array("name" => "name", "value" => $name, "type" => PDO::PARAM_STR),
-                2=>array("name" => "gender", "value" => $gender, "type" => PDO::PARAM_STR),
-                3=>array("name" => "nickname", "value" => $nickname, "type" => PDO::PARAM_STR),
-                4=>array("name" => "origin", "value" => $origin, "type" => PDO::PARAM_STR),
-                5=>array("name" => "section", "value" => $section, "type" => PDO::PARAM_INT)
-            );
-            
-            // appeler la méthode pour executer la requête
-            $this->queryPrepareExecute($queryInsertTeacher, $bindInsertTeacher);
-    }
     /**
      * Fontion pour afficher toute les sections
      */
-    public function getAllSections()
+    public function getAllOs()
     {
-        //requête pour selectionner les sections
-        $querySections='SELECT `idSection`, `secName` FROM `t_section`';
+        //requête permettant de selectionner et de grouper par os
+        $getQueryOnePhone = 'SELECT `idOs`, `osName` FROM `t_os` GROUP BY `idOs`';
 
-        // appeler la méthode pour executer la requête
-        $result=$this->querySimpleExecute($querySections);
-    
+        //appeler la méthode pour l'executer
+        $result = $this->querySimpleExecute($getQueryOnePhone);
+
         // appeler la méthode pour avoir le résultat sous forme de tableau
         // retour tous les enseignants
         return $this->formatData($result);
     }
-     /**
-      * Permet de modifier un enseignant qui est déjà enregistrer
-      */
-    public function updateTeacher($id, $firstName,  $name,   $gender, $nickname, $origine, $section, )
-    {
-        //requête pour modifier 
-        $addTeacher = "UPDATE t_teacher SET teaFirstname=:firstname, teaName=:name, teaGender=:gender, teaNickname=:nickname, teaOrigine=:origine, fkSection=:section WHERE idTeacher=:id";
 
-        //tableau pour toute les informations
-        $bindTeacher = array(
-            0 => array("name" => "firstname", "value" => $firstName, "type" => PDO::PARAM_STR),
-            1 => array("name" => "name", "value" => $name, "type" => PDO::PARAM_STR),
-            2 => array("name" => "gender", "value" => $gender, "type" => PDO::PARAM_STR),
-            3 => array("name" => "nickname", "value" => $nickname, "type" => PDO::PARAM_STR),
-            4 => array("name" => "origine", "value" => $origine, "type" => PDO::PARAM_STR),
-            5 => array("name" => "section", "value" => $section, "type" => PDO::PARAM_INT),
-            6 => array("name" => "id", "value" => $id, "type" => PDO::PARAM_INT)
-        );
-         //Appeler la méthode pour executer la requète
-         $addTeacher = $this->queryPrepareExecute($addTeacher, $bindTeacher);
+    public function classPhoneScreen(){
+
+        //requête permettant de selectionner et de grouper par taille de l'écran
+        $queryClassPhone = 'SELECT `idSmartphone`, `smaDisplaySize` FROM `t_smartphon` ORDER BY `smaDisplaySize` ASC';
+        
+        //appeler la méthode pour l'executer
+        $result = $this->querySimpleExecute($getQueryOnePhone);
 
         // appeler la méthode pour avoir le résultat sous forme de tableau
         // retour tous les enseignants
-         $returnTeacher = $this->formatData($addTeacher);
-
-         //Vide le jeu d'enregistrement 
-         $this->unsetData($addTeacher);
-
-         //Retourne l'enseignant
-         return $returnTeacher;
-    }
-
-    /**
-     * Permet de supprimer un professeur
-     */
-    public function deleteTeacher($id){
-
-        //requête pour modifier
-        $queryTeacher ="DELETE FROM `t_teacher` WHERE idTeacher =:varId";
- 
-        //tableau
-        $bindTeachers = array( 
-             array("name" => "varId", "value" => $id, "type" => PDO::PARAM_INT)
-        );
-
-        //Appel la méthode pour exécuter la requête
-        $this->queryPrepareExecute($queryTeacher, $bindTeachers);
-    }
-    public function addVote(){
+        return $this->formatData($result);
     }
 }
 ?>
