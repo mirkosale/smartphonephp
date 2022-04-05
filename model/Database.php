@@ -18,10 +18,12 @@
      * Se connecter via PDO et utilise la variable de classe $connector
      */
     public function __construct(){
+        include('config.php');
+
         try
         {
-            $this -> connector = new PDO('mysql:host=localhost; dbname=db_nickname_diedasilva; charset=utf8' , 'dbUser_DiegoDaSilva', '.Etml-');
-        }
+            $this->connector = new PDO("mysql:host=$DB_SERVER;dbname=$DB_NAME;charset=utf8" , $DB_USER, $DB_PASSWORD);
+                }
         catch (PDOException $e)
         {
             die('Erreur : ' . $e->getMessage());
