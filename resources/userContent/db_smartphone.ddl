@@ -53,7 +53,7 @@ create table t_smartphone (
      smaRAM int(2) not null,
      smaStorage int(3) not null,
      smaBatteryCapacity decimal(6,2) not null,
-     smaBatteryLastedMinutes int(4) not null,
+     smaBatteryLastedMinutes int(4) default 0,
      smaDisplaySize decimal(4,2) not null,
      fkCpu int not null,
 	fkOS int not null,

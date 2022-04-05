@@ -1,24 +1,21 @@
 <div class="container">
 
-	<h2>Liste des clients</h2>
+	<h3>Liste des smartphones</h3>
 	<div class="row">
 		<table class=" table table-striped">
 		<tr>
-			<th>Numéro</th>
 			<th>Nom</th>
-			<th>Prénom</th>
+			<th>Marque</th>
 			<th>Téléphone</th>
 			<th></th>
 		</tr>
 		<?php
-		    // Affichage de chaque client
-			foreach ($customers as $customer) {
+		    // Affichage de chaque téléphone
+			foreach ($phones as $phone) {
 				echo '<tr>';
-				echo '<td>' . htmlspecialchars($phone['idContact']) . '</td>';
-				echo '<td>' . htmlspecialchars($phone['conLastName']) . '</td>';
-				echo '<td>' . htmlspecialchars($phone['conFirstName']) . '</td>';
-				echo '<td>' . htmlspecialchars($phone['conPhone']) . '</td>';
-				echo '<td><a href="index.php?controller=customer&action=detail&id=' . htmlspecialchars($phone['idSmartphone']) .'"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a></td>';
+				echo '<td>' . htmlspecialchars($phone['smaName']) . '</td>';
+				echo '<td>' . htmlspecialchars($phone['smaBard']) . '</td>';
+				echo '<td><a href="index.php?controller=phone&action=detail&id=' . htmlspecialchars($phone['idPhone']) .'"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a></td>';
 				echo '</tr>';
 			}
 		?>

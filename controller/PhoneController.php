@@ -35,7 +35,7 @@ class PhoneController extends Controller {
         $phones = $db->getAllPhones();
 
         // Charge le fichier pour la vue
-        $view = file_get_contents('view/page/receipe/list.php');
+        $view = file_get_contents('view/page/phone/list.php');
 
 
         // Pour que la vue puisse afficher les bonnes données, il est obligatoire que les variables de la vue puisse contenir les valeurs des données
@@ -59,7 +59,7 @@ class PhoneController extends Controller {
         $db = new Database();
         $phone = $db->getOnePhone($_GET['id']);
 
-        $view = file_get_contents('view/page/customer/detail.php');
+        $view = file_get_contents('view/page/phone/detail.php');
 
         ob_start();
         eval('?>' . $view);
@@ -67,5 +67,32 @@ class PhoneController extends Controller {
 
         return $content;
 
+    }
+
+    private function orderOSAction() {
+        $db = new Database();
+        $phone = $db->getOnePhone($_GET['id']);
+
+        $view = file_get_contents('view/page/phone/list.php');
+
+        ob_start();
+        eval('?>' . $view);
+        $content = ob_get_clean();
+
+        return $content;
+    }
+
+    
+    private function orderScreenAction() {
+        $db = new Database();
+        $phones = $db->classPhoneScreen();
+
+        $view = file_get_contents('view/page/phone/list.php');
+
+        ob_start();
+        eval('?>' . $view);
+        $content = ob_get_clean();
+
+        return $content;
     }
 }

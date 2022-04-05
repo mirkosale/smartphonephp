@@ -74,7 +74,7 @@
     /**
      * récupère la liste de tous les enseignants de la BD    
      */
-    public function getAllPhone(){
+    public function getAllPhones(){
     
         // avoir la requête sql
         $queryPhone = 'SELECT idSmartphone, `smaFullname`, `smaBrand` FROM `t_smartphone`';
@@ -127,10 +127,27 @@
     public function classPhoneScreen(){
 
         //requête permettant de selectionner et de grouper par taille de l'écran
-        $queryClassPhone = 'SELECT `idSmartphone`, `smaDisplaySize` FROM `t_smartphon` ORDER BY `smaDisplaySize` ASC';
+        $queryClassPhone = 'SELECT `idSmartphone`, `smaDisplaySize` FROM `t_smartphone` ORDER BY `smaDisplaySize` ASC';
         
         //appeler la méthode pour l'executer
-        $result = $this->querySimpleExecute($getQueryOnePhone);
+        $result = $this->querySimpleExecute($queryClassPhone);
+
+        // appeler la méthode pour avoir le résultat sous forme de tableau
+        // retour tous les enseignants
+        return $this->formatData($result);
+    }
+
+
+
+
+    public function orderByLowestPricePerBrandPerOs()
+    {
+        $query = 
+        "SELECT 'smaName' as 'Name' FROM t_smartphone as s INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone
+        WHERE (SELECT priAmount FROM t_price ORDER BY priAmount DESC LIMIT 1) ; ";
+
+        //appeler la méthode pour l'executer
+        $result = $this->querySimpleExecute($query);
 
         // appeler la méthode pour avoir le résultat sous forme de tableau
         // retour tous les enseignants
