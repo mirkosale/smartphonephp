@@ -29,8 +29,8 @@ class MainController {
     public function dispatch() {
 
         if (!isset($_GET['controller'])) {
-            $_GET['controller'] = 'phone';
-            $_GET['action'] = 'list';
+            $_GET['controller'] = 'home';
+            $_GET['action'] = 'index';
         }
 
 
