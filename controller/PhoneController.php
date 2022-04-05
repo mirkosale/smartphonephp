@@ -32,7 +32,7 @@ class PhoneController extends Controller {
 
         // Instancie le modèle et va chercher les informations
         $db = new Database();
-       // $receipes = $db->findAll();
+        $phones = $db->getAllPhones();
 
         // Charge le fichier pour la vue
         $view = file_get_contents('view/page/receipe/list.php');
@@ -57,7 +57,7 @@ class PhoneController extends Controller {
     private function detailAction() {
 
         $db = new Database();
-       // $receipe = $db->findOne($_GET['id']);
+        $phone = $db->getOnePhone($_GET['id']);
 
         $view = file_get_contents('view/page/customer/detail.php');
 
