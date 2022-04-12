@@ -16,27 +16,15 @@ drop database if exists db_smartphone;
 create database db_smartphone;
 use db_smartphone;
 
-
 -- Tables Section
 -- _____________ 
 
-drop table if exists t_cpu;
-drop table if exists t_price;
-drop table if exists t_smartphone;
-drop table if exists t_os;
+
 
 create table t_os (
      idOS int auto_increment not null,
 	 osName varchar(15) not null,
      constraint ID_t_os_ID primary key (idOS));
-	 
-create table t_cpu (
-     idCpu int auto_increment not null,
-     cpuFullName varchar(40) not null,
-     cpuBrand varchar(20) not null,
-     cpuCores int(2) not null,
-     cpuClockSpeed decimal(6,1) not null,
-     constraint ID_t_cpu_ID primary key (idCpu));
 
 create table t_price (
      idPrice int auto_increment not null,
@@ -55,7 +43,8 @@ create table t_smartphone (
      smaBatteryCapacity decimal(6,2) not null,
      smaBatteryLastedMinutes int(4) default 0,
      smaDisplaySize decimal(4,2) not null,
-     fkCpu int not null,
+     smaCPUCores int(2) not null,
+     smaCPUClockSpeed decimal(6,1) not null,
 	fkOS int not null,
      constraint ID_t_smartphone_ID primary key (idSmartphone));
 
@@ -71,10 +60,6 @@ alter table t_smartphone add constraint ID_t_smartphone_CHK
      check(exists(select * from t_price
                   where t_price.idSmartphone = idSmartphone)); 
 
-alter table t_smartphone add constraint REF_t_sma_t_cpu_FK
-     foreign key (fkCpu)
-     references t_cpu(idCpu);
-
 alter table t_smartphone add constraint REF_t_sma_t_os_FK
      foreign key (fkOS)
      references t_os(idOS);
@@ -86,9 +71,6 @@ alter table t_smartphone add constraint REF_t_sma_t_os_FK
 create unique index ID_t_os_IND
      on t_os (idOS);
 
-create unique index ID_t_cpu_IND
-     on t_cpu (idCpu);
-
 create unique index ID_t_price_IND
      on t_price (idPrice);
 
@@ -97,9 +79,6 @@ create index EQU_t_pri_t_sma_IND
 
 create unique index ID_t_smartphone_IND
      on t_smartphone (idSmartphone);
-
-create index REF_t_sma_t_cpu_IND
-     on t_smartphone (fkCpu);
 
 create index REF_t_sma_t_os_IND
      on t_smartphone (fkOS);
