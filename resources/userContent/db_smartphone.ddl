@@ -23,7 +23,7 @@ use db_smartphone;
 
 create table t_os (
      idOS int auto_increment not null,
-	 osName varchar(15) not null,
+	 osName varchar(15) not null
      constraint ID_t_os_ID primary key (idOS));
 
 create table t_price (
@@ -41,7 +41,7 @@ create table t_smartphone (
      smaRAM int(2) not null,
      smaStorage int(3) not null,
      smaBatteryCapacity decimal(6,2) not null,
-     smaBatteryLastedMinutes int(4) default 0,
+     smaBatteryLastedMinutes int(4) not null,
      smaDisplaySize decimal(4,2) not null,
      smaCPUCores int(2) not null,
      smaCPUClockSpeed decimal(6,1) not null,

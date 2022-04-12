@@ -6,7 +6,7 @@
  * Controler pour gérer les recettes
  */
 
-include_once 'model/Database.php';
+include_once 'model/database.php';
 
 class PhoneController extends Controller {
 
@@ -82,10 +82,9 @@ class PhoneController extends Controller {
         return $content;
     }
 
-    
     private function orderScreenAction() {
         $db = new Database();
-        $phones = $db->classPhoneScreen();
+        $phones = $db->orderPhoneByScreen(0);
 
         $view = file_get_contents('view/page/phone/list.php');
 
@@ -94,5 +93,78 @@ class PhoneController extends Controller {
         $content = ob_get_clean();
 
         return $content;
+    }
+
+    private function orderBrandAction() {
+        $db = new Database();
+        $phones = $db->orderPhoneByBrand($_GET['brand']);
+
+        $view = file_get_contents('view/page/phone/list.php');
+
+        ob_start();
+        eval('?>' . $view);
+        $content = ob_get_clean();
+
+        return $content;
+    }
+
+    private function orderBatteryAction()
+    {
+        $db = new Database();
+        $phones = $db->orderPhoneByBatteryLife();
+
+        $view = file_get_contents('view/page/phone/list.php');
+
+        ob_start();
+        eval('?>' . $view);
+        $content = ob_get_clean();
+
+        return $content;
+    }
+
+    private function orderRAMAction()
+    {
+        $db = new Database();
+        $phones = $db->orderPhoneByRAM();
+
+        $view = file_get_contents('view/page/phone/list.php');
+
+        ob_start();
+        eval('?>' . $view);
+        $content = ob_get_clean();
+
+        return $content;
+    }
+
+    private function orderMostExpensiveAction()
+    {
+        $db = new Database();
+        $phones = $db->orderMostExpensiveSmartphone();
+
+        $view = file_get_contents('view/page/phone/list.php');
+
+        ob_start();
+        eval('?>' . $view);
+        $content = ob_get_clean();
+
+        return $content;
+    }
+
+    private function orderLeastExpensiveAction()
+    {
+        if (isset($_GET['os']))
+        {        
+            $os = htmlspecialchars(trim($_GET['os']));
+            $db = new Database();
+            $phones = $db->orderByLowestPricePerBrandPerOs($os);
+
+            $view = file_get_contents('view/page/phone/list.php');
+
+            ob_start();
+            eval('?>' . $view);
+            $content = ob_get_clean();
+
+            return $content;
+        }
     }
 }

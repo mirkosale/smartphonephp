@@ -124,10 +124,28 @@
         return $this->formatData($result);
     }
 
-    public function classPhoneScreen(){
+    public function orderPhoneByBatteryLife()
+    {
+        $query = 
+        "SELECT * FROM t_smartphone ORDER BY smaBatteryLastedMinutes ASC LIMIT 5;";
+        //appeler la méthode pour l'executer
+        $result = $this->querySimpleExecute($query);
+
+
+        // appeler la méthode pour avoir le résultat sous forme de tableau
+        // retour tous les enseignants
+        return $this->formatData($result);
+    }
+
+
+    public function orderPhoneByScreen($limit){
 
         //requête permettant de selectionner et de grouper par taille de l'écran
         $queryClassPhone = 'SELECT `idSmartphone`, `smaDisplaySize` FROM `t_smartphone` ORDER BY `smaDisplaySize` ASC';
+        
+        $binds = array(
+            array("name" => "varId" , "value" => $limit, "type"=> PDO::PARAM_INT)
+        );
         
         //appeler la méthode pour l'executer
         $result = $this->querySimpleExecute($queryClassPhone);
@@ -174,14 +192,63 @@
     /**
      * Requête permettant d'ordonner par prix, par os
      */
-    public function orderByLowestPricePerBrandPerOs()
+    public function orderPhoneByCPU($limit)
     {
         $query = 
-        "SELECT 'smaName' as 'Name' FROM t_smartphone as s INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone
-        WHERE (SELECT priAmount FROM t_price ORDER BY priAmount DESC LIMIT 1) ; ";
+        "SELECT * FROM t_smartphone ORDER BY (smaCPUCores * smaCPUClockSpeed) DESC LIMIT :varId;";
+
+        $binds = array(
+            array("name" => "varId" , "value" => $limit, "type"=> PDO::PARAM_INT)
+        );
+        //appeler la méthode pour l'executer
+        $result = $this->querySimpleExecute($query);
+
+
+        // appeler la méthode pour avoir le résultat sous forme de tableau
+        // retour tous les enseignants
+        return $this->formatData($result);
+    }
+
+    public function orderPhoneByRAM()
+    {
+        $query = 
+        "SELECT * FROM t_smartphone ORDER BY smaRAM DESC LIMIT 5;";
+        //appeler la méthode pour l'executer
+        $result = $this->querySimpleExecute($query);
+
+
+        // appeler la méthode pour avoir le résultat sous forme de tableau
+        // retour tous les enseignants
+        return $this->formatData($result);
+    }
+
+    public function orderMostExpensiveSmartphone()
+    {
+        $query = 
+        "SELECT * FROM t_smartphone as s INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone 
+        WHERE (SELECT priAmount FROM t_price ORDER BY priAmount ASC) LIMIT 3;";
 
         //appeler la méthode pour l'executer
         $result = $this->querySimpleExecute($query);
+
+
+        // appeler la méthode pour avoir le résultat sous forme de tableau
+        // retour tous les enseignants
+        return $this->formatData($result);
+    }
+
+    public function orderByLowestPricePerBrandPerOs($idOS)
+    {
+        $query = 
+        "SELECT * FROM t_smartphone as s INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone 
+        WHERE fkOS = :varId AND (SELECT priAmount FROM t_price ORDER BY priAmount DESC LIMIT 1);";
+
+        $binds = array(
+            array("name" => "varId" , "value" => $idOS, "type"=> PDO::PARAM_INT)
+        );
+
+        //appeler la méthode pour l'executer
+        $result = $this->queryPrepareExecute($query, $binds);
 
         // appeler la méthode pour avoir le résultat sous forme de tableau
         // retour tous les enseignants
