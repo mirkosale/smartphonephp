@@ -19,8 +19,6 @@ use db_smartphone;
 -- Tables Section
 -- _____________ 
 
-
-
 create table t_os (
      idOS int auto_increment not null,
 	 osName varchar(15) not null
@@ -47,7 +45,6 @@ create table t_smartphone (
      smaCPUClockSpeed decimal(6,1) not null,
 	fkOS int not null,
      constraint ID_t_smartphone_ID primary key (idSmartphone));
-
 
 -- Constraints Section
 -- ___________________ 
