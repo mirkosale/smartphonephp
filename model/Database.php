@@ -133,13 +133,47 @@
         $result = $this->querySimpleExecute($queryClassPhone);
 
         // appeler la méthode pour avoir le résultat sous forme de tableau
-        // retour tous les enseignants
+        // retour tous les iphones
         return $this->formatData($result);
     }
 
+    /**
+     * Requête permettant de voir l'évolution du prix avec aussi toute les informations du smartphone
+     */
+    public function priceEvolution($id){
 
+        //requête permettant de selectionner les infos et de voir l'évolution du prix par date
+        $queryPriceEvolution = 'SELECT * FROM `t_smartphone` INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone';
 
+        //regroupe  les info dans un tableau
+        $bindPhone = array(
+            array("name" => "varId" , "value" => $id, "type"=> PDO::PARAM_INT)
+        );
+        //appeler la màthode pour s'éxecuter
+        $result = $this->querySimpleExecute($queryPriceEvolution);
 
+        //retourne les informations 
+        return $this->formatData($result);
+    }
+
+    /**
+     * Requête pour regourper par cosntructeur les smartphone
+     */
+    public function regroupConstructeur(){
+
+        //requête permettant de sélectionenr le constructeur
+        $queryPriceEvolution = 'SELECT `smaBrand` FROM `t_smartphone`';
+
+        $result = $this->querySimpleExecute($queryPriceEvolution);
+
+        // appeler la méthode pour avoir le résultat
+        // retour tous les infos
+        return $this->formatData($result);
+    }
+
+    /**
+     * Requête permettant d'ordonner par prix, par os
+     */
     public function orderByLowestPricePerBrandPerOs()
     {
         $query = 
@@ -153,5 +187,7 @@
         // retour tous les enseignants
         return $this->formatData($result);
     }
+
+
 }
 ?>
