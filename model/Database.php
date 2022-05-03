@@ -21,7 +21,7 @@
         include('config.php');
 
         try
-        {
+        {   
             $this->connector = new PDO("mysql:host=$DB_SERVER;dbname=$DB_NAME;charset=utf8" , $DB_USER, $DB_PASSWORD);
                 }
         catch (PDOException $e)
