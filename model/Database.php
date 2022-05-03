@@ -158,7 +158,7 @@
     public function orderPhoneByScreen($limit){
 
         //requête permettant de selectionner et de grouper par taille de l'écran
-        $queryClassPhone = 'SELECT `idSmartphone`, `smaDisplaySize` FROM `t_smartphone` ORDER BY `smaDisplaySize` ASC';
+        $queryClassPhone = 'SELECT * FROM `t_smartphone` ORDER BY `smaDisplaySize` ASC';
         
         $binds = array(
             array("name" => "varId" , "value" => $limit, "type"=> PDO::PARAM_INT)
@@ -194,7 +194,7 @@
     /**
      * Requête pour regourper par cosntructeur les smartphone
      */
-    public function regroupConstructeur(){
+    public function orderPhoneByBrand(){
 
         //requête permettant de sélectionenr le constructeur
         $queryPriceEvolution = 'SELECT `smaBrand` FROM `t_smartphone`';

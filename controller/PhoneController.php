@@ -84,6 +84,7 @@ class PhoneController extends Controller {
         $db = new Database();
         $phones = $db->orderPhoneByOS($id);
 
+        var_dump($phones);
         $view = file_get_contents('view/page/phone/list.php');
 
         ob_start();
