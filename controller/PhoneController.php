@@ -70,8 +70,19 @@ class PhoneController extends Controller {
     }
 
     private function orderOSAction() {
+
+        if (!isset($_GET['id']))
+        { 
+            $id = 1;
+        }
+        else
+        {
+            $id = $_GET['id'];
+        }
+
+
         $db = new Database();
-        $phone = $db->getOnePhone($_GET['id']);
+        $phones = $db->orderPhoneByOS($id);
 
         $view = file_get_contents('view/page/phone/list.php');
 

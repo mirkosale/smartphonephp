@@ -124,6 +124,23 @@
         return $this->formatData($result);
     }
 
+    public function orderPhoneByOS($id)
+    {
+        //requête permettant de selectionner et de grouper par os
+        $query = 'SELECT * FROM t_smartphone WHERE fkOS = :varId';
+
+        $binds = array(
+            array("name" => "varId" , "value" => $id, "type"=> PDO::PARAM_INT)
+        );
+
+        //appeler la méthode pour l'executer
+        $result = $this->queryPrepareExecute($query, $binds);
+
+        // appeler la méthode pour avoir le résultat sous forme de tableau
+        // retour tous les enseignants
+        return $this->formatData($result);
+    }
+
     public function orderPhoneByBatteryLife()
     {
         $query = 
@@ -146,7 +163,7 @@
         $binds = array(
             array("name" => "varId" , "value" => $limit, "type"=> PDO::PARAM_INT)
         );
-        
+
         //appeler la méthode pour l'executer
         $result = $this->querySimpleExecute($queryClassPhone);
 

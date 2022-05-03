@@ -11,9 +11,7 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Fancy Product</h5>
-								<!-- Product price-->
-								$40.00 - $80.00
+								<h5 class="fw-bolder">Ordonner par OS</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
@@ -62,7 +60,7 @@
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
 						</div>
 					</div>
 				</div>
@@ -80,7 +78,7 @@
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
 						</div>
 					</div>
 				</div>
@@ -102,7 +100,7 @@
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
 						</div>
 					</div>
 				</div>
@@ -143,7 +141,7 @@
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
 						</div>
 					</div>
 				</div>
@@ -162,7 +160,7 @@
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
 						</div>
 					</div>
 				</div>
