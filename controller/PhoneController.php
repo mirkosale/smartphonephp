@@ -84,7 +84,6 @@ class PhoneController extends Controller {
         $db = new Database();
         $phones = $db->orderPhoneByOS($id);
 
-        var_dump($phones);
         $view = file_get_contents('view/page/phone/list.php');
 
         ob_start();
@@ -109,7 +108,25 @@ class PhoneController extends Controller {
 
     private function orderBrandAction() {
         $db = new Database();
-        $phones = $db->orderPhoneByBrand($_GET['brand']);
+        $brands = $db->getAllBrands();
+
+        var_dump($brands);
+        if (isset($_GET['brand']))
+        { 
+            foreach($brands as $brand)
+            {
+                if ($_GET['brand'] == $brand['smaBrand'])
+                {
+                    $currentBrand = $_GET['brand'];
+                }
+            }
+        }
+        else
+        {
+            $currentBrand = $brands[0]['smaBrand'];
+        }
+
+        $phones = $db->orderPhoneByBrand($currentBrand);
 
         $view = file_get_contents('view/page/phone/list.php');
 
@@ -124,6 +141,19 @@ class PhoneController extends Controller {
     {
         $db = new Database();
         $phones = $db->orderPhoneByBatteryLife();
+
+        $view = file_get_contents('view/page/phone/list.php');
+
+        ob_start();
+        eval('?>' . $view);
+        $content = ob_get_clean();
+
+        return $content;
+    }
+
+    private function orderCpuAction() {
+        $db = new Database();
+        $phones = $db->orderPhoneByCPU(10);
 
         $view = file_get_contents('view/page/phone/list.php');
 

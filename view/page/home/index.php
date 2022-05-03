@@ -30,7 +30,7 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Special Item</h5>
+								<h5 class="fw-bolder">Ordonner par taille d'écran</h5>
 								<!-- Product price-->
 								<span class="text-muted text-decoration-line-through">$20.00</span>
 								$18.00
@@ -52,15 +52,12 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Sale Item</h5>
-								<!-- Product price-->
-								<span class="text-muted text-decoration-line-through">$50.00</span>
-								$25.00
+								<h5 class="fw-bolder">Ordonner par constructeur</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderBrand">Comparer</a></div>
 						</div>
 					</div>
 				</div>
@@ -72,13 +69,13 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Popular Item</h5>
+								<h5 class="fw-bolder">Ordonner par autonomie</h5>
 								$40.00
 							</div>
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderBattery">Comparer</a></div>
 						</div>
 					</div>
 				</div>
@@ -92,7 +89,7 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Sale Item</h5>
+								<h5 class="fw-bolder">Ordonner par puissance du processeur</h5>
 								<!-- Product price-->
 								<span class="text-muted text-decoration-line-through">$50.00</span>
 								$25.00
@@ -100,7 +97,7 @@
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderCpu">Comparer</a></div>
 						</div>
 					</div>
 				</div>

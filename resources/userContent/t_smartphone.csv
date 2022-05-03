@@ -5,13 +5,13 @@ idSmartphone;smaFullName;smaBrand;smaReleaseDate;smaRAM;smaStorage;smaBatteryCap
 4;Samsung Galaxy Note7;Samsung;2016-08-19;4;64;3500;589;5.7;8;2150;1
 5;Samsung Galaxy Note 8;Samsung;2017-08-23;6;256;3300;960;6.3;8;2300;1
 6;Samsung Galaxy Note FE;Samsung;2017-06-01;4;64;3500;1200;5.7;8;2300;1
-7;Samsung Galaxy S21 Ultra;Samsung;2021-04-28;16;512;5000;840;6.8;8;2900;2
+7;Samsung Galaxy S21 Ultra;Samsung;2021-04-28;16;512;5000;840;6.8;8;2900;1
 8;Iphone 8;Apple;2017-09-12;2;256;2691;780;5.5;6;2390;2
 9;Iphone X;Apple;2017-09-12;3;256;2716;1020;5.8;6;2390;2
 10;Apple iPhone XR;Apple;2018-09-12;3;256;2942;960;6.1;6;2500;2
 11;Apple iPhone XS;Apple;2018-09-13;4;512;2658;900;5.85;6;2500;2
 12;Apple iPhone XS Max;Apple;2018-09-14;4;512;3174;1020;6.46;6;2500;2
-13;Samsung Galaxy Note10;Samsung;2019-08-07;8;256;3500;1440;6.3;8;2730;1
+13;Samsung Galaxy Note10;Samsung;2019-08-07;8;256;3500;930;6.3;8;2730;1
 14;Samsung Galaxy Note10+;Samsung;2019-08-08;12;512;4300;660;6.8;8;2730;1
 15;Samsung Galaxy Note10 5G;Samsung;2019-08-09;12;256;3500;930;6.8;8;2730;1
 16;Apple iPhone 11;Apple;2019-09-10;4;256;3110;900;6.1;6;2650;2
