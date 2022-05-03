@@ -19,9 +19,11 @@ use db_smartphone;
 -- Tables Section
 -- _____________ 
 
+
+
 create table t_os (
      idOS int auto_increment not null,
-	 osName varchar(15) not null
+	 osName varchar(15) not null,
      constraint ID_t_os_ID primary key (idOS));
 
 create table t_price (
@@ -43,8 +45,9 @@ create table t_smartphone (
      smaDisplaySize decimal(4,2) not null,
      smaCPUCores int(2) not null,
      smaCPUClockSpeed decimal(6,1) not null,
-	fkOS int not null,
+	 fkOS int not null,
      constraint ID_t_smartphone_ID primary key (idSmartphone));
+
 
 -- Constraints Section
 -- ___________________ 
@@ -52,10 +55,6 @@ create table t_smartphone (
 alter table t_price add constraint EQU_t_pri_t_sma_FK
      foreign key (fkSmartphone)
      references t_smartphone(idSmartphone);
-
-alter table t_smartphone add constraint ID_t_smartphone_CHK
-     check(exists(select * from t_price
-                  where t_price.idSmartphone = idSmartphone)); 
 
 alter table t_smartphone add constraint REF_t_sma_t_os_FK
      foreign key (fkOS)
