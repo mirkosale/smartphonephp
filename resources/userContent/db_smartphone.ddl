@@ -21,7 +21,7 @@ use db_smartphone;
 
 create table t_os (
      idOS int auto_increment not null,
-	 osName varchar(15) not null
+	 osName varchar(15) not null,
      constraint ID_t_os_ID primary key (idOS));
 
 create table t_price (
