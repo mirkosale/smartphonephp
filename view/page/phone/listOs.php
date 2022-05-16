@@ -3,14 +3,12 @@
             <option value="orderOsPhone">Choisir l'OS</option>
                 <?php
                     foreach($os as $os1){
-                ?>
-            <option value="<?=$os1["idOs"]?>"><?=$os1["osName"]?></option>;
-        <?php
+                echo '<option value="' . $os1["idOs"] . '">' . $os1["osName"] . '</option>';
             }
         ?>
     </select>
 	<h3>Liste des smartphones</h3>
-  
+  <?php var_dump($os);?>
 	<div class="row">
 		<table class=" table table-striped">
 		<tr>

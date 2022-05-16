@@ -82,7 +82,6 @@ class PhoneController extends Controller
             $id = $_GET['id'];
         }
 
-
         $db = new Database();
         $os = $db->getAllOs();
         $phones = $db->orderPhoneByOS($id);
