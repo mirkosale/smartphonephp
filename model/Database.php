@@ -49,6 +49,7 @@
         foreach($binds as $key => $value){
             $req->bindValue($binds[$key]['name'], $binds[$key]["value"], $binds[$key]["type"]);
         }
+
         $req->execute();
 
         return $req;
@@ -77,7 +78,7 @@
     public function getAllPhones(){
     
         // avoir la requête sql
-        $queryPhone = 'SELECT idSmartphone, `smaFullname`, `smaBrand` FROM `t_smartphone`';
+        $queryPhone = 'SELECT * FROM `t_smartphone`';
 
         // appeler la méthode pour executer la requête
         $getQueryPhone = $this -> querySimpleExecute($queryPhone);
@@ -89,12 +90,29 @@
     }
 
     /**
+     * récupère la liste de tous les enseignants de la BD    
+     */
+    public function getAllBrands(){
+    
+        // avoir la requête sql
+        $query = 'SELECT smaBrand FROM `t_smartphone` GROUP BY smaBrand';
+
+        // appeler la méthode pour executer la requête
+        $req = $this -> querySimpleExecute($query);
+
+        // appeler la méthode pour avoir le résultat sous forme de tableau
+        // retour tous les enseignants
+        return $this -> formatData($req);
+        
+    }
+    
+    /**
      * récupère la liste des informations pour 1 enseignant
      */
     public function getOnePhone($id){
 
         // avoir la requête sql pour 1 enseignant (utilisation de l'id)
-        $queryOnePhone = "SELECT * FROM `t_smartphone`";
+        $queryOnePhone = "SELECT * FROM `t_smartphone` WHERE idSmartphone = :varId";
 
         $bindPhone = array(
             array("name" => "varId" , "value" => $id, "type"=> PDO::PARAM_INT)
@@ -114,7 +132,7 @@
     public function getAllOs()
     {
         //requête permettant de selectionner et de grouper par os
-        $getQueryOnePhone = 'SELECT `idOs`, `osName` FROM `t_os` GROUP BY `idOs`';
+        $getQueryOnePhone = 'SELECT * FROM `t_os` GROUP BY `idOs`';
 
         //appeler la méthode pour l'executer
         $result = $this->querySimpleExecute($getQueryOnePhone);
@@ -144,7 +162,7 @@
     public function orderPhoneByBatteryLife()
     {
         $query = 
-        "SELECT * FROM t_smartphone ORDER BY smaBatteryLastedMinutes ASC LIMIT 5;";
+        "SELECT * FROM t_smartphone ORDER BY smaBatteryLastedMinutes DESC LIMIT 5;";
         //appeler la méthode pour l'executer
         $result = $this->querySimpleExecute($query);
 
@@ -194,16 +212,23 @@
     /**
      * Requête pour regourper par cosntructeur les smartphone
      */
-    public function orderPhoneByBrand(){
+    public function orderPhoneByBrand($brand){
 
         //requête permettant de sélectionenr le constructeur
-        $queryPriceEvolution = 'SELECT `smaBrand` FROM `t_smartphone`';
+        $query = 'SELECT * FROM `t_smartphone` WHERE `smaBrand` = :varId';
 
-        $result = $this->querySimpleExecute($queryPriceEvolution);
+        $binds = array(
+            array("name" => "varId" , "value" => $brand, "type"=> PDO::PARAM_INT)
+        );
 
+        $req = $this->queryPrepareExecute($query, $binds);
+
+       
         // appeler la méthode pour avoir le résultat
         // retour tous les infos
-        return $this->formatData($result);
+        $result = $this->formatData($req);
+
+        return $result;
     }
 
     /**
@@ -218,7 +243,7 @@
             array("name" => "varId" , "value" => $limit, "type"=> PDO::PARAM_INT)
         );
         //appeler la méthode pour l'executer
-        $result = $this->querySimpleExecute($query);
+        $result = $this->queryPrepareExecute($query, $binds);
 
 
         // appeler la méthode pour avoir le résultat sous forme de tableau
