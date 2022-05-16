@@ -1,5 +1,6 @@
 <div class="container">
-    <select name="orderOs" id="orderOs">
+	<h3></br>Liste des smartphones<br></br></h3>
+	<select name="orderOs" id="orderOs">
             <option value="orderOsPhone">Choisir l'OS</option>
                 <?php
                     foreach($os as $os1){
@@ -7,8 +8,7 @@
             }
         ?>
     </select>
-	<h3>Liste des smartphones</h3>
-  <?php var_dump($os);?>
+	<hr></hr>
 	<div class="row">
 		<table class=" table table-striped">
 		<tr>
@@ -30,3 +30,4 @@
 		</table>
 	</div>
 </div>
+<br></br>
