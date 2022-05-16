@@ -60,12 +60,23 @@ class PhoneController extends Controller
      */
     private function detailAction()
     {
+        if (isset($_GET['id']))
+        {
+            $db = new Database();
+            $phone = $db->getOnePhone($_GET['id']);
+            $os = $db->getOs($phone[0]['fkOs']);
+            if (!isset($phone[0]))
+            {
+                $view = file_get_contents('view/page/phone/badPhone.php');
+            }
+        } else {
+            $view = file_get_contents('view/page/phone/badPhone.php');
+        }
 
-        $db = new Database();
-        $phone = $db->getOnePhone($_GET['id']);
-        $os = $db->getOs($phone[0]['fkOs']);
-        $view = file_get_contents('view/page/phone/detail.php');
-
+        
+        if (!isset($view)) {
+            $view = file_get_contents('view/page/phone/detail.php');
+        }
         ob_start();
         eval('?>' . $view);
         $content = ob_get_clean();
@@ -81,12 +92,19 @@ class PhoneController extends Controller
         } else {
             $id = $_GET['id'];
         }
-
+        
         $db = new Database();
         $os = $db->getAllOs();
         $phones = $db->orderPhoneByOS($id);
 
-        $view = file_get_contents('view/page/phone/listOs.php');
+        if (!isset($phones[0]))
+        {
+            $view = file_get_contents('view/page/phone/badOs.php');
+        }
+        
+        if (!isset($view)) {
+            $view = file_get_contents('view/page/phone/listOs.php');
+        }
 
         ob_start();
         eval('?>' . $view);

@@ -11,7 +11,7 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Ordonner par OS</h5>
+								<h5 class="fw-bolder">Lister les téléphones par OS</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
@@ -30,7 +30,7 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Ordonner par taille d'écran</h5>
+								<h5 class="fw-bolder">Lister par taille d'écran du plus petit au plus grand</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
@@ -66,7 +66,7 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Smartphones classés par autonomie par autonomie</h5>
+								<h5 class="fw-bolder">Les 5 smartphones avec la plus grande durée de batterie</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
@@ -83,7 +83,7 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Ordonner par puissance du processeur</h5>
+								<h5 class="fw-bolder">Les 10 smartphones classés par puissance du processeur</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
@@ -100,7 +100,7 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Les 10 smartphones listés par puissance du CPU, taille d'écran et RAM</h5>
+								<h5 class="fw-bolder">Les 5 smartphones listés par puissance du CPU, taille d'écran et RAM</h5>
 							</div>
 						</div>
 						<!-- Product actions-->

@@ -8,7 +8,6 @@
         ?>
     </select>
 	<h3>Liste des smartphones</h3>
-  <?php var_dump($os);?>
 	<div class="row">
 		<table class=" table table-striped">
 		<tr>
