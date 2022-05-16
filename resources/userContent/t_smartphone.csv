@@ -1,31 +1,31 @@
 idSmartphone;smaFullName;smaBrand;smaReleaseDate;smaRAM;smaStorage;smaBatteryCapacity;smaBatteryLastedMinutes;smaDisplaySize;smaCPUCores;smaCPUClockSpeed;fkOS
-1;Iphone6S;Apple;2014-09-09;2;128;2750;445;4.7;2;1840;2
-2;Iphone7;Apple;2016-09-07;2;256;1960;600;4.7;4;2340;2
-3;Iphone7 Plus;Apple;2016-09-07;3;256;2900;720;5.5;4;2340;2
-4;Samsung Galaxy Note7;Samsung;2016-08-19;4;64;3500;589;5.7;8;2150;1
-5;Samsung Galaxy Note 8;Samsung;2017-08-23;6;256;3300;960;6.3;8;2300;1
-6;Samsung Galaxy Note FE;Samsung;2017-06-01;4;64;3500;1200;5.7;8;2300;1
-7;Samsung Galaxy S21 Ultra;Samsung;2021-04-28;16;512;5000;840;6.8;8;2900;1
-8;Iphone 8;Apple;2017-09-12;2;256;2691;780;5.5;6;2390;2
-9;Iphone X;Apple;2017-09-12;3;256;2716;1020;5.8;6;2390;2
-10;Apple iPhone XR;Apple;2018-09-12;3;256;2942;960;6.1;6;2500;2
-11;Apple iPhone XS;Apple;2018-09-13;4;512;2658;900;5.85;6;2500;2
-12;Apple iPhone XS Max;Apple;2018-09-14;4;512;3174;1020;6.46;6;2500;2
-13;Samsung Galaxy Note10;Samsung;2019-08-07;8;256;3500;930;6.3;8;2730;1
-14;Samsung Galaxy Note10+;Samsung;2019-08-08;12;512;4300;660;6.8;8;2730;1
-15;Samsung Galaxy Note10 5G;Samsung;2019-08-09;12;256;3500;930;6.8;8;2730;1
-16;Apple iPhone 11;Apple;2019-09-10;4;256;3110;900;6.1;6;2650;2
-17;Apple iPhone 11 Pro;Apple;2019-09-11;4;512;3046;456;5.8;6;2650;2
-18;Apple iPhone 11 Pro Max;Apple;2019-09-12;4;512;3969;509;6.5;6;2650;2
-19;Samsung Galaxy Note20;Samsung;2020-08-05;8;256;4300;712;6.7;8;2730;1
-20;Samsung Galaxy Note20 5G;Samsung;2020-08-06;8;256;4300;840;6.7;8;2730;1
-21;Samsung Galaxy Note20 Ultra;Samsung;2020-08-07;12;512;4500;960;6.9;8;2730;1
-22;Apple iPhone 12;Apple;2020-10-13;4;256;2815;1020;6.1;6;2310;2
-23;Apple iPhone 12 mini;Apple;2020-10-14;4;256;2227;900;5.4;6;3100;2
-24;Apple iPhone 12 Pro;Apple;2020-10-15;6;512;2815;1020;6.1;6;3100;2
-25;Apple iPhone 12 Pro Max;Apple;2020-10-16;6;512;3687;1020;6.7;6;3100;2
-26;Apple iPhone 13;Apple;2021-09-24;4;512;3095;1140;6.1;6;3230;2
-27;Apple iPhone 13 Pro;Apple;2021-09-25;6;1024;3095;1320;6.1;6;3230;2
-28;Apple iPhone 13 Mini;Apple;2021-09-26;4;512;2406;630;5.4;6;3230;2
-29;Apple iPhone 13 Pro Max;Apple;2021-09-27;6;1024;4352;1320;6.7;6;3230;2
-30;Samsung Galaxy S21;Samsung;2021-04-28;8;256;4000;540;6.2;8;2900;1
+1;iPhone 6S;Apple;09.09.2014;2;128;2750;445;4.7;2;1840;2
+2;iPhone 7;Apple;07.09.2016;2;256;1960;600;4.7;4;2340;2
+3;iPhone 7 Plus;Apple;07.09.2016;3;256;2900;720;5.5;4;2340;2
+4;Samsung Galaxy Note 7;Samsung;19.08.2016;4;64;3500;589;5.7;8;2150;1
+5;Samsung Galaxy Note 8;Samsung;23.08.2017;6;256;3300;960;6.3;8;2300;1
+6;Samsung Galaxy Note FE;Samsung;01.06.2017;4;64;3500;1200;5.7;8;2300;1
+7;Samsung Galaxy S21 Ultra;Samsung;28.04.2021;16;512;5000;840;6.8;8;2900;1
+8;iPhone 8;Apple;12.09.2017;2;256;2691;780;5.5;6;2390;2
+9;iPhone X;Apple;12.09.2017;3;256;2716;1020;5.8;6;2390;2
+10;Apple iPhone XR;Apple;12.09.2018;3;256;2942;960;6.1;6;2500;2
+11;Apple iPhone XS;Apple;13.09.2018;4;512;2658;900;5.85;6;2500;2
+12;Apple iPhone XS Max;Apple;14.09.2018;4;512;3174;1020;6.46;6;2500;2
+13;Samsung Galaxy Note10;Samsung;07.08.2019;8;256;3500;930;6.3;8;2730;1
+14;Samsung Galaxy Note10+;Samsung;08.08.2019;12;512;4300;660;6.8;8;2730;1
+15;Samsung Galaxy Note10 5G;Samsung;09.08.2019;12;256;3500;930;6.8;8;2730;1
+16;Apple iPhone 11;Apple;10.09.2019;4;256;3110;900;6.1;6;2650;2
+17;Apple iPhone 11 Pro;Apple;11.09.2019;4;512;3046;456;5.8;6;2650;2
+18;Apple iPhone 11 Pro Max;Apple;12.09.2019;4;512;3969;509;6.5;6;2650;2
+19;Samsung Galaxy Note 20;Samsung;05.08.2020;8;256;4300;712;6.7;8;2730;1
+20;Samsung Galaxy Note 20 5G;Samsung;06.08.2020;8;256;4300;840;6.7;8;2730;1
+21;Samsung Galaxy Note 20 Ultra;Samsung;07.08.2020;12;512;4500;960;6.9;8;2730;1
+22;Apple iPhone 12;Apple;13.10.2020;4;256;2815;1020;6.1;6;2310;2
+23;Apple iPhone 12 mini;Apple;14.10.2020;4;256;2227;900;5.4;6;3100;2
+24;Apple iPhone 12 Pro;Apple;15.10.2020;6;512;2815;1020;6.1;6;3100;2
+25;Apple iPhone 12 Pro Max;Apple;16.10.2020;6;512;3687;1020;6.7;6;3100;2
+26;Apple iPhone 13;Apple;24.09.2021;4;512;3095;1140;6.1;6;3230;2
+27;Apple iPhone 13 Pro;Apple;25.09.2021;6;1024;3095;1320;6.1;6;3230;2
+28;Apple iPhone 13 Mini;Apple;26.09.2021;4;512;2406;630;5.4;6;3230;2
+29;Apple iPhone 13 Pro Max;Apple;27.09.2021;6;1024;4352;1320;6.7;6;3230;2
+30;Samsung Galaxy S21;Samsung;28.04.2021;8;256;4000;540;6.2;8;2900;1

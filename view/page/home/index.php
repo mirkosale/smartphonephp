@@ -16,7 +16,7 @@
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderOS">Comparer</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderOS">Voir</a></div>
 						</div>
 					</div>
 				</div>
@@ -31,14 +31,11 @@
 							<div class="text-center">
 								<!-- Product name-->
 								<h5 class="fw-bolder">Ordonner par taille d'écran</h5>
-								<!-- Product price-->
-								<span class="text-muted text-decoration-line-through">$20.00</span>
-								$18.00
 							</div>
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderScreen">Comparer</a></div>
+						<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderScreen">Voir</a></div>
 						</div>
 					</div>
 				</div>
@@ -52,12 +49,12 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Ordonner par constructeur</h5>
+								<h5 class="fw-bolder">Lister les smartphones par constructeur</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderBrand">Comparer</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderBrand">Voir</a></div>
 						</div>
 					</div>
 				</div>
@@ -69,20 +66,17 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Ordonner par autonomie</h5>
-								$40.00
+								<h5 class="fw-bolder">Smartphones classés par autonomie par autonomie</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderBattery">Comparer</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderBattery">Voir</a></div>
 						</div>
 					</div>
 				</div>
 				<div class="col mb-5">
 					<div class="card h-100">
-						<!-- Sale badge-->
-						<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
 						<!-- Product image-->
 						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
 						<!-- Product details-->
@@ -90,14 +84,11 @@
 							<div class="text-center">
 								<!-- Product name-->
 								<h5 class="fw-bolder">Ordonner par puissance du processeur</h5>
-								<!-- Product price-->
-								<span class="text-muted text-decoration-line-through">$50.00</span>
-								$25.00
 							</div>
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderCpu">Comparer</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderCpu">Voir</a></div>
 						</div>
 					</div>
 				</div>
@@ -109,36 +100,12 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Fancy Product</h5>
-								<!-- Product price-->
-								$120.00 - $280.00
+								<h5 class="fw-bolder">Les 10 smartphones listés par puissance du CPU, taille d'écran et RAM</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-5">
-					<div class="card h-100">
-						<!-- Sale badge-->
-						<div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-						<!-- Product image-->
-						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-						<!-- Product details-->
-						<div class="card-body p-4">
-							<div class="text-center">
-								<!-- Product name-->
-								<h5 class="fw-bolder">Special Item</h5>
-								<!-- Product price-->
-								<span class="text-muted text-decoration-line-through">$20.00</span>
-								$18.00
-							</div>
-						</div>
-						<!-- Product actions-->
-						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderRAM">Voir</a></div>
 						</div>
 					</div>
 				</div>
@@ -150,14 +117,29 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<!-- Product name-->
-								<h5 class="fw-bolder">Popular Item</h5>
-								<!-- Product price-->
-								$40.00
+								<h5 class="fw-bolder">Les 3 smartphones les plus chers d'aujourd'hui</h5>
 							</div>
 						</div>
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Comparer</a></div>
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderMostExpensive">Voir</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="col mb-5">
+					<div class="card h-100">
+						<!-- Product image-->
+						<img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+						<!-- Product details-->
+						<div class="card-body p-4">
+							<div class="text-center">
+								<!-- Product name-->
+								<h5 class="fw-bolder">Le smartphone le moins cher par OS</h5>
+							</div>
+						</div>
+						<!-- Product actions-->
+						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+							<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="?controller=phone&action=orderLeastExpensive">Voir</a></div>
 						</div>
 					</div>
 				</div>

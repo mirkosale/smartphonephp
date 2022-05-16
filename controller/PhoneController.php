@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ETML
  * Auteur : Cindy Hardegger
@@ -8,14 +9,16 @@
 
 include_once 'model/database.php';
 
-class PhoneController extends Controller {
+class PhoneController extends Controller
+{
 
     /**
      * Permet de choisir l'action à effectuer
      *
      * @return mixed
      */
-    public function display() {
+    public function display()
+    {
 
         $action = $_GET['action'] . "Action";
 
@@ -28,7 +31,8 @@ class PhoneController extends Controller {
      *
      * @return string
      */
-    private function listAction() {
+    private function listAction()
+    {
 
         // Instancie le modèle et va chercher les informations
         $db = new Database();
@@ -54,11 +58,12 @@ class PhoneController extends Controller {
      *
      * @return string
      */
-    private function detailAction() {
+    private function detailAction()
+    {
 
         $db = new Database();
         $phone = $db->getOnePhone($_GET['id']);
-
+        $os = $db->getOs($phone[0]['fkOs']);
         $view = file_get_contents('view/page/phone/detail.php');
 
         ob_start();
@@ -66,17 +71,14 @@ class PhoneController extends Controller {
         $content = ob_get_clean();
 
         return $content;
-
     }
 
-    private function orderOSAction() {
+    private function orderOSAction()
+    {
 
-        if (!isset($_GET['id']))
-        { 
+        if (!isset($_GET['id'])) {
             $id = 1;
-        }
-        else
-        {
+        } else {
             $id = $_GET['id'];
         }
 
@@ -93,7 +95,8 @@ class PhoneController extends Controller {
         return $content;
     }
 
-    private function orderScreenAction() {
+    private function orderScreenAction()
+    {
         $db = new Database();
         $phones = $db->orderPhoneByScreen(0);
 
@@ -106,23 +109,19 @@ class PhoneController extends Controller {
         return $content;
     }
 
-    private function orderBrandAction() {
+    private function orderBrandAction()
+    {
         $db = new Database();
         $brands = $db->getAllBrands();
 
         var_dump($brands);
-        if (isset($_GET['brand']))
-        { 
-            foreach($brands as $brand)
-            {
-                if ($_GET['brand'] == $brand['smaBrand'])
-                {
+        if (isset($_GET['brand'])) {
+            foreach ($brands as $brand) {
+                if ($_GET['brand'] == $brand['smaBrand']) {
                     $currentBrand = $_GET['brand'];
                 }
             }
-        }
-        else
-        {
+        } else {
             $currentBrand = $brands[0]['smaBrand'];
         }
 
@@ -151,7 +150,8 @@ class PhoneController extends Controller {
         return $content;
     }
 
-    private function orderCpuAction() {
+    private function orderCpuAction()
+    {
         $db = new Database();
         $phones = $db->orderPhoneByCPU(10);
 
@@ -194,19 +194,20 @@ class PhoneController extends Controller {
 
     private function orderLeastExpensiveAction()
     {
-        if (isset($_GET['os']))
-        {        
+        if (isset($_GET['os'])) {
             $os = htmlspecialchars(trim($_GET['os']));
-            $db = new Database();
-            $phones = $db->orderByLowestPricePerBrandPerOs($os);
-
-            $view = file_get_contents('view/page/phone/list.php');
-
-            ob_start();
-            eval('?>' . $view);
-            $content = ob_get_clean();
-
-            return $content;
+        } else {
+            $os = 1;
         }
+        $db = new Database();
+        $phones = $db->orderByLowestPricePerBrandPerOs($os);
+
+        $view = file_get_contents('view/page/phone/list.php');
+
+        ob_start();
+        eval('?>' . $view);
+        $content = ob_get_clean();
+
+        return $content;
     }
 }

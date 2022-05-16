@@ -142,6 +142,23 @@
         return $this->formatData($result);
     }
 
+    public function getOs($id)
+    {
+        //requête permettant de selectionner et de grouper par os
+        $query = 'SELECT * FROM `t_os` WHERE `idOs` = :id';
+
+        $binds = [
+            ["name" => "id", "value" => $id, "type" => PDO::PARAM_INT]
+        ];
+
+        //appeler la méthode pour l'executer
+        $result = $this->queryPrepareExecute($query, $binds);
+
+        // appeler la méthode pour avoir le résultat sous forme de tableau
+        // retour tous les enseignants
+        return $this->formatData($result);
+    }
+
     public function orderPhoneByOS($id)
     {
         //requête permettant de selectionner et de grouper par os
@@ -296,7 +313,5 @@
         // retour tous les enseignants
         return $this->formatData($result);
     }
-
-
 }
 ?>
