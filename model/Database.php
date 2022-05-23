@@ -210,17 +210,17 @@
     /**
      * Requête permettant de voir l'évolution du prix avec aussi toute les informations du smartphone
      */
-    public function priceEvolution($id){
+    public function getSmartphonePrice($idPhone){
 
         //requête permettant de selectionner les infos et de voir l'évolution du prix par date
-        $queryPriceEvolution = 'SELECT * FROM `t_smartphone` INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone';
+        $queryPriceEvolution = 'SELECT * FROM `t_price` as p INNER JOIN t_smartphone as s on s.idSmartphone = p.fkSmartphone WHERE fkSmartphone = :idPhone ORDER BY p.priDate';
 
         //regroupe  les info dans un tableau
         $bindPhone = array(
-            array("name" => "varId" , "value" => $id, "type"=> PDO::PARAM_INT)
+            array("name" => "idPhone" , "value" => $idPhone, "type"=> PDO::PARAM_INT)
         );
         //appeler la màthode pour s'éxecuter
-        $result = $this->querySimpleExecute($queryPriceEvolution);
+        $result = $this->queryPrepareExecute($queryPriceEvolution, $bindPhone);
 
         //retourne les informations 
         return $this->formatData($result);
@@ -232,10 +232,10 @@
     public function orderPhoneByBrand($brand){
 
         //requête permettant de sélectionenr le constructeur
-        $query = 'SELECT * FROM `t_smartphone` WHERE `smaBrand` = :varId';
+        $query = 'SELECT * FROM `t_smartphone` WHERE `smaBrand` = :brandName';
 
         $binds = array(
-            array("name" => "varId" , "value" => $brand, "type"=> PDO::PARAM_INT)
+            array("name" => "brandName" , "value" => $brand, "type"=> PDO::PARAM_INT)
         );
 
         $req = $this->queryPrepareExecute($query, $binds);

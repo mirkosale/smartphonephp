@@ -60,23 +60,36 @@ class PhoneController extends Controller
      */
     private function detailAction()
     {
-        if (isset($_GET['id']))
-        {
+        if (isset($_GET['id'])) {
             $db = new Database();
             $phone = $db->getOnePhone($_GET['id']);
-            $os = $db->getOs($phone[0]['fkOs']);
-            if (!isset($phone[0]))
-            {
+            $os = $db->getOs($phone[0]['fkOS']);
+            if (!isset($phone[0])) {
                 $view = file_get_contents('view/page/phone/badPhone.php');
             }
         } else {
             $view = file_get_contents('view/page/phone/badPhone.php');
         }
 
-        
         if (!isset($view)) {
             $view = file_get_contents('view/page/phone/detail.php');
+
+            $prices = $db->getSmartphonePrice($phone[0]['idSmartphone']);
+
+            $hours = floor($phone[0]['smaBatteryLastedMinutes'] / 60);
+            $minutes = floor($phone[0]['smaBatteryLastedMinutes'] % 60);
+
+            if ($minutes < 10) {
+                $minutes = "0$minutes";
+            }
+
+            if ($hours < 10) {
+                $hours = "0$hours";
+            }
+
+            $phone[0]['smaLastedTime'] = "$hours" . "h" . $minutes . "m";
         }
+
         ob_start();
         eval('?>' . $view);
         $content = ob_get_clean();
@@ -86,22 +99,20 @@ class PhoneController extends Controller
 
     private function orderOSAction()
     {
-
-        if (!isset($_GET['id'])) {
+        if (!isset($_POST['orderOs'])) {
             $id = 1;
         } else {
-            $id = $_GET['id'];
+            $id = $_POST['orderOs'];
         }
-        
+
         $db = new Database();
         $os = $db->getAllOs();
         $phones = $db->orderPhoneByOS($id);
 
-        if (!isset($phones[0]))
-        {
+        if (!isset($phones[0]) || empty($phones[0])) {
             $view = file_get_contents('view/page/phone/badOs.php');
         }
-        
+
         if (!isset($view)) {
             $view = file_get_contents('view/page/phone/listOs.php');
         }
