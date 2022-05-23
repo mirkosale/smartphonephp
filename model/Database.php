@@ -284,8 +284,8 @@
     public function orderMostExpensiveSmartphone()
     {
         $query = 
-        "SELECT * FROM t_smartphone as s INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone 
-        WHERE (SELECT priAmount FROM t_price ORDER BY priAmount ASC) LIMIT 3;";
+        "SELECT * FROM t_smartphone as s INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone GROUP BY smaFullName WHERE SELECT priAmount FROM t_price ORDER BY priAmount ASC
+        ;";
 
         //appeler la méthode pour l'executer
         $result = $this->querySimpleExecute($query);
