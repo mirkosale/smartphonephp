@@ -139,28 +139,35 @@ class PhoneController extends Controller
     }
 
     private function orderBrandAction()
-    {
+    {    
         $db = new Database();
         $brands = $db->getAllBrands();
 
-        var_dump($brands);
-        if (isset($_GET['brand'])) {
+        if (isset($_POST['brand'])) {
             foreach ($brands as $brand) {
-                if ($_GET['brand'] == $brand['smaBrand']) {
-                    $currentBrand = $_GET['brand'];
+                if ($_POST['brand'] == $brand['smaBrand']) {
+                    $currentBrand = $_POST['brand'];
                 }
             }
         } else {
             $currentBrand = $brands[0]['smaBrand'];
         }
 
-        $phones = $db->orderPhoneByBrand($currentBrand);
 
-        $view = file_get_contents('view/page/phone/list.php');
+        $phones = $db->orderPhoneByBrand($currentBrand);
+        
+        if (!isset($phones[0]) || empty($phones[0])) {
+            $view = file_get_contents('view/page/phone/badBrand.php');
+        }
+
+        if (!isset($view)) {
+            $view = file_get_contents('view/page/phone/listBrands.php');
+        }
 
         ob_start();
         eval('?>' . $view);
         $content = ob_get_clean();
+        var_dump($_POST);
 
         return $content;
     }

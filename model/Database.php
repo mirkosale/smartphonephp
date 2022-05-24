@@ -127,7 +127,7 @@
     }
 
     /**
-     * Fontion pour afficher toute les sections
+     * Fonction pour afficher toute les sections
      */
     public function getAllOs()
     {
@@ -235,7 +235,7 @@
         $query = 'SELECT * FROM `t_smartphone` WHERE `smaBrand` = :brandName';
 
         $binds = array(
-            array("name" => "brandName" , "value" => $brand, "type"=> PDO::PARAM_INT)
+            array("name" => "brandName" , "value" => $brand, "type"=> PDO::PARAM_STR)
         );
 
         $req = $this->queryPrepareExecute($query, $binds);
@@ -284,7 +284,7 @@
     public function orderMostExpensiveSmartphone()
     {
         $query = 
-        "SELECT * FROM t_smartphone as s INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone GROUP BY smaFullName WHERE SELECT priAmount FROM t_price ORDER BY priAmount ASC
+            "SELECT * FROM t_smartphone as s INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone WHERE priDate = (SELECT MAX(priDate) FROM t_price) ORDER BY priAmount DESC LIMIT 5
         ;";
 
         //appeler la méthode pour l'executer
@@ -296,18 +296,15 @@
         return $this->formatData($result);
     }
 
-    public function orderByLowestPricePerBrandPerOs($idOS)
+    public function orderByLowestPricePerBrandPerOs()
     {
         $query = 
         "SELECT * FROM t_smartphone as s INNER JOIN t_price as p on s.idSmartphone = p.fkSmartphone 
-        WHERE fkOS = :varId AND (SELECT priAmount FROM t_price ORDER BY priAmount DESC LIMIT 1);";
+       WHERE priDate = (SELECT MAX(priDate) FROM t_price) GROUP BY fkOS ORDER BY priAmount;";
 
-        $binds = array(
-            array("name" => "varId" , "value" => $idOS, "type"=> PDO::PARAM_INT)
-        );
 
         //appeler la méthode pour l'executer
-        $result = $this->queryPrepareExecute($query, $binds);
+        $result = $this->querySimpleExecute($query);
 
         // appeler la méthode pour avoir le résultat sous forme de tableau
         // retour tous les enseignants
