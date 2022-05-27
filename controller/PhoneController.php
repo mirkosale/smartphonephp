@@ -143,22 +143,20 @@ class PhoneController extends Controller
         $db = new Database();
         $brands = $db->getAllBrands();
 
-        if (isset($_POST['brand'])) {
-            foreach ($brands as $brand) {
-                if ($_POST['brand'] == $brand['smaBrand']) {
-                    $currentBrand = $_POST['brand'];
-                }
-            }
-        } else {
+        if (!isset($_POST['brand'])) {
             $currentBrand = $brands[0]['smaBrand'];
+        } else {
+            $currentBrand = $_POST['brand'];
         }
 
+        
 
         $phones = $db->orderPhoneByBrand($currentBrand);
+
         
         if (!isset($phones[0]) || empty($phones[0])) {
             $view = file_get_contents('view/page/phone/badBrand.php');
-        }
+        } 
 
         if (!isset($view)) {
             $view = file_get_contents('view/page/phone/listBrands.php');
@@ -167,7 +165,6 @@ class PhoneController extends Controller
         ob_start();
         eval('?>' . $view);
         $content = ob_get_clean();
-        var_dump($_POST);
 
         return $content;
     }

@@ -1,8 +1,8 @@
 <div class="container">
 	<h3></br>Liste des smartphones<br></br></h3>
-	<form action="index.php?controller=phone&action=orderOS" method="post">
-	<select name="orderOs" id="orderOs">
-		<option value="idOS">Choisir le constructeur</option>
+	<form action="index.php?controller=phone&action=orderBrand" method="post">
+	<select name="brand" id="brand">
+		<option value="brand">Choisir le constructeur</option>
 		<?php
 		foreach ($brands as $brand) {
 			echo '<option value="' . $brand["smaBrand"] . '">' . $brand["smaBrand"] . '</option>';
